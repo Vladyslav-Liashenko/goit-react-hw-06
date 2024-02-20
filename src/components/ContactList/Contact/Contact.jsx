@@ -1,8 +1,12 @@
 import styled from './Contact.module.css';
 import userIcon from '../../../assets/person-fill.svg';
 import telIcon from '../../../assets/telephone-fill.svg';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../../redux/contactSlice';
 
-export const Contact = ({ name, number, onDelete, contactId }) => {
+
+export const Contact = ({ name, number, contactId }) => {
+  const dispatch = useDispatch();
   return (
     <div className={styled.card}>
       <div>
@@ -15,7 +19,7 @@ export const Contact = ({ name, number, onDelete, contactId }) => {
           <span className={styled.info}>{number}</span>
         </a>
       </div>
-      <button onClick={() => onDelete(contactId)}>
+      <button onClick={() => dispatch(deleteContact(contactId))}>
         Delete
       </button>
     </div>
