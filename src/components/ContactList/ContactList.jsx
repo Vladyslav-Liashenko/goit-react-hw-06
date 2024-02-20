@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 export const ContactList = () => {
 
   const contactState = useSelector((state) => state.contacts);
+  console.log(contactState);
   return (
     <div>
       <ul className={styled.ul}>

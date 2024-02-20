@@ -5,7 +5,7 @@ export const SearchBox = () => {
   const dispatch = useDispatch();
 
   const handleSearchChange = (e) => {
-    console.log(e.target.value);
+    console.log(e.target.value.trim());
     dispatch(setFilter(e.target.value.trim()));
   };
 
