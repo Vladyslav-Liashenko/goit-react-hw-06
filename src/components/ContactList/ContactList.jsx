@@ -16,12 +16,13 @@ export const ContactList = () => {
   const contactState = useSelector(selectContacts);
   const filterState = useSelector(selectFilter);
 
-  const getVisibleContacts = getFilterContacts(contactState, filterState);
+  const getVisibleContacts = getFilterContacts(contactState , filterState);
+  
   return (
     <div>
       <ul className={styled.ul}>
-        {getVisibleContacts.map(contact => (
-          <li key={contact.id} className={styled.contact}>
+        {Object.values(getVisibleContacts).map((contact, index) => (
+          <li key={index} className={styled.contact}>
             <div>
               <Contact
                 name={contact.name}
