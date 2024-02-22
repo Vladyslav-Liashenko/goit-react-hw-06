@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 export const ContactList = () => {
   const getFilterContacts = (contacts, filter) => {
     if (!filter) {
-      console.log(contacts);
       return contacts;
     }
     return contacts.filter(contact =>
