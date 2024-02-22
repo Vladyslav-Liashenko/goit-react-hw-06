@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 export const ContactList = () => {
   const getFilterContacts = (contacts, filter) => {
     if (!filter) {
+      console.log(contacts);
       return contacts;
     }
     return contacts.filter(contact =>
@@ -18,13 +19,10 @@ export const ContactList = () => {
 
   const getVisibleContacts = getFilterContacts(contactState, filterState);
 
-  const getVisibleContactsUpd = Object.values(getVisibleContacts);
-  console.log(getVisibleContactsUpd);
-
   return (
     <div>
       <ul className={styled.ul}>
-        {getVisibleContactsUpd.map(contact => (
+        {getVisibleContacts.map(contact => (
           <li key={contact.id} className={styled.contact}>
             <div>
               <Contact
