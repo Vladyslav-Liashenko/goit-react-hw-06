@@ -16,13 +16,16 @@ export const ContactList = () => {
   const contactState = useSelector(selectContacts);
   const filterState = useSelector(selectFilter);
 
-  const getVisibleContacts = getFilterContacts(contactState , filterState);
-  
+  const getVisibleContacts = getFilterContacts(contactState, filterState);
+
+  const getVisibleContactsUpd = Object.values(getVisibleContacts);
+  console.log(getVisibleContactsUpd);
+
   return (
     <div>
       <ul className={styled.ul}>
-        {Object.values(getVisibleContacts).map((contact, index) => (
-          <li key={index} className={styled.contact}>
+        {getVisibleContactsUpd.map(contact => (
+          <li key={contact.id} className={styled.contact}>
             <div>
               <Contact
                 name={contact.name}
